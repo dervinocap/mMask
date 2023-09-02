@@ -1,0 +1,24 @@
+#███▄ ▄███▓ ███▄ ▄███▓
+#▓██▒▀█▀ ██▒▓██▒▀█▀ ██▒
+#▓██    ▓██░▓██    ▓██░
+#▒██    ▒██ ▒██    ▒██
+#▒██▒   ░██▒▒██▒   ░██▒
+#░ ▒░   ░  ░░ ▒░   ░  ░
+#░  ░      ░░  ░      ░
+#Version v1.0 by @Dervone
+#t.me/DerviWorks
+
+Message:
+  unknown-command: "§cUnknown Command!"
+  already-wearing: "§cYou're already wearing something!"
+  wore: "§cYou wore a mask!"
+  no-perms: "§cYou don't have permission to do this!"
+  reload: "§aPlugin reloaded in %ms%ms"
+
+Settings:
+  method: "Spigot"
+  chat-distance: true
+
+Item:
+  next: "§cNext Page"
+  previous: "§cPrevious Page"

@@ -1,0 +1,9 @@
+Masks:
+  default_mask:
+    item-name: "&aDefault Mask"
+    lore:
+      - "&cUse this mask"
+      - "&c to became anonymous!"
+    material: REDSTONE
+    chat-format: "&f&lAnonymous: %message%"
+    distance: 10

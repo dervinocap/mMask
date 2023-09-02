@@ -1,0 +1,13 @@
+name: mMask
+version: '${version}'
+main: me.dervinocap.mmask.MMask
+api-version: 1.13
+author: [ DerviNoCap ]
+description: The best plugin for Anonymous Mask
+softdepend:
+  - TAB
+commands:
+  mmask:
+    description: Plugin Main Command
+    aliases:
+      - mask
