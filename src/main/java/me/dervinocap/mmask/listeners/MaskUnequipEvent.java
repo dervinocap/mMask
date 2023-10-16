@@ -17,6 +17,8 @@ public class MaskUnequipEvent implements Listener {
 
         if (event.getSlot() != 39) return;
 
+        if (player.getInventory().getHelmet() == null) return;
+
         if (!BasicsFunction.isMask(event.getCurrentItem())) return;
 
         if (BasicsFunction.checkMethod("Spigot")) {

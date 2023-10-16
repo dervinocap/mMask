@@ -15,6 +15,8 @@ public class MaskDeathEvent implements Listener {
 
         Player player = event.getEntity();
 
+        if (player.getInventory().getHelmet() == null) return;
+
         if (!BasicsFunction.isMask(player.getInventory().getHelmet())) return;
 
         if (BasicsFunction.checkMethod("Spigot")) {

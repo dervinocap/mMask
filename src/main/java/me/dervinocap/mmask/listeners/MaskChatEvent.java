@@ -18,12 +18,16 @@ public class MaskChatEvent implements Listener {
 
         Player player = event.getPlayer();
 
+        if (player.getInventory().getHelmet() == null) return;
+
         if (!BasicsFunction.isMask(player.getInventory().getHelmet())) return;
 
         NBTItem nbtItem = new NBTItem(player.getInventory().getHelmet(), true);
         Mask mask = PluginCustomLoader.getInstance().getConfigHandler().getMaskManager().getMaskMap().get(nbtItem.getString("Mask"));
 
         event.setCancelled(true);
+
+        System.out.println(mask.getChatFormat().replace("%message%", event.getMessage()).replace(mask.getChatFormat(), mask.getChatFormat() + "§f(" + player + ")"));
 
         if (ConfigManager.SETTINGS_CHAT_DISTANCE.getBoolean()) {
 
