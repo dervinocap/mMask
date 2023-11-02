@@ -2,6 +2,8 @@ package me.dervinocap.mmask.listeners;
 
 import com.cryptomorin.xseries.XSound;
 import de.tr7zw.changeme.nbtapi.NBTItem;
+import me.dervinocap.mmask.MMask;
+import me.dervinocap.mmask.events.MaskEquipEvent;
 import me.dervinocap.mmask.objects.Mask;
 import me.dervinocap.mmask.utils.config.ConfigManager;
 import me.dervinocap.mmask.utils.customloader.BasicsFunction;
@@ -20,7 +22,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class MaskEquipEvent implements Listener {
+public class MaskEquip implements Listener {
 
     public static List<UUID> mascherato = new ArrayList<>();
 
@@ -60,8 +62,23 @@ public class MaskEquipEvent implements Listener {
         player.getInventory().setHelmet(player.getInventory().getItemInMainHand());
         player.getInventory().removeItem(player.getInventory().getItemInMainHand());
         player.playSound(player.getLocation(), XSound.ITEM_ARMOR_EQUIP_LEATHER.parseSound(), 1, 1);
+        mascherato.add(player.getUniqueId());
         player.sendMessage(ConfigManager.MESSAGE_WORE.getFormattedString());
-        mascherato.remove(player.getUniqueId());
+
+        MaskEquipEvent maskEquipEvent = new MaskEquipEvent(mask, player);
+
+        maskEquipEvent.setMask(mask);
+        maskEquipEvent.setPlayer(player);
+
+        if (event.isCancelled()) {
+            maskEquipEvent.setCancelled(true);
+        }
+
+        if (maskEquipEvent.isCancelled()) {
+            event.setCancelled(true);
+        }
+
+        MMask.getInstance().getServer().getPluginManager().callEvent(maskEquipEvent);
 
     }
 

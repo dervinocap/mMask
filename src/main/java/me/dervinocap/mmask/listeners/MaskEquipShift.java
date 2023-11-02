@@ -1,6 +1,9 @@
 package me.dervinocap.mmask.listeners;
 
+import com.cryptomorin.xseries.XMaterial;
 import de.tr7zw.changeme.nbtapi.NBTItem;
+import me.dervinocap.mmask.MMask;
+import me.dervinocap.mmask.events.MaskEquipEvent;
 import me.dervinocap.mmask.objects.Mask;
 import me.dervinocap.mmask.utils.customloader.BasicsFunction;
 import me.dervinocap.mmask.utils.customloader.PluginCustomLoader;
@@ -23,6 +26,9 @@ public class MaskEquipShift implements Listener {
 
         if (!event.getClick().isShiftClick()) return;
 
+        if (event.getCurrentItem() == null) return;
+        if (event.getCurrentItem().getType().equals(XMaterial.AIR.parseMaterial())) return;
+
         if (!BasicsFunction.isMask(event.getCurrentItem())) return;
 
         NBTItem nbtItem = new NBTItem(event.getCurrentItem(), true);
@@ -41,7 +47,24 @@ public class MaskEquipShift implements Listener {
         player.getInventory().setHelmet(mask.getMaskItem());
         player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_LEATHER, 1, 1);
 
+        MaskEquip.mascherato.add(player.getUniqueId());
+
         player.getInventory().removeItem(mask.getMaskItem());
+
+        MaskEquipEvent maskEquipEvent = new MaskEquipEvent(mask, player);
+
+        maskEquipEvent.setMask(mask);
+        maskEquipEvent.setPlayer(player);
+
+        if (event.isCancelled()) {
+            maskEquipEvent.setCancelled(true);
+        }
+
+        if (maskEquipEvent.isCancelled()) {
+            event.setCancelled(true);
+        }
+
+        MMask.getInstance().getServer().getPluginManager().callEvent(maskEquipEvent);
 
     }
 }

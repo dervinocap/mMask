@@ -46,10 +46,10 @@ public class PluginCustomLoader {
     private void loadListeners() {
         getLogger().info("Loading Listeners...");
 
-        Bukkit.getPluginManager().registerEvents(new MaskEquipEvent(), plugin);
-        Bukkit.getPluginManager().registerEvents(new MaskUnequipEvent(), plugin);
+        Bukkit.getPluginManager().registerEvents(new MaskEquip(), plugin);
+        Bukkit.getPluginManager().registerEvents(new MaskUnequip(), plugin);
         Bukkit.getPluginManager().registerEvents(new MaskChatEvent(), plugin);
-        Bukkit.getPluginManager().registerEvents(new MaskJoinEvent(), plugin);
+        Bukkit.getPluginManager().registerEvents(new MaskJoin(), plugin);
         Bukkit.getPluginManager().registerEvents(new MaskDeathEvent(), plugin);
         Bukkit.getPluginManager().registerEvents(new MaskEquipShift(), plugin);
 

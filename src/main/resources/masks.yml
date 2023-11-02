@@ -6,4 +6,5 @@ Masks:
       - "&c to became anonymous!"
     material: REDSTONE
     chat-format: "&f&lAnonymous: %message%"
+    custom-model-data: 1
     distance: 10

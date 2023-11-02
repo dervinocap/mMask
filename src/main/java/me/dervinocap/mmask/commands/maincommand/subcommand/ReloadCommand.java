@@ -26,7 +26,10 @@ public class ReloadCommand extends SubCommand {
 
         Player player = (Player) sender;
 
-        if (!player.hasPermission("mmask.reload")) return;
+        if (!player.hasPermission("mmask.reload")) {
+            player.sendMessage(ConfigManager.MESSAGE_NO_PERMS.getFormattedString());
+            return;
+        }
 
         long start = System.currentTimeMillis();
 

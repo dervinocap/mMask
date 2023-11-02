@@ -1,6 +1,7 @@
 package me.dervinocap.mmask.commands.maincommand.subcommand;
 
 import me.dervinocap.mmask.commands.SubCommand;
+import me.dervinocap.mmask.utils.config.ConfigManager;
 import me.dervinocap.mmask.utils.customloader.PluginCustomLoader;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -24,7 +25,10 @@ public class HelpCommand extends SubCommand {
 
         Player player = (Player) sender;
 
-        if (!player.hasPermission("mmask.help")) return;
+        if (!player.hasPermission("mmask.help")) {
+            player.sendMessage(ConfigManager.MESSAGE_NO_PERMS.getFormattedString());
+            return;
+        }
 
         player.sendMessage("");
         player.sendMessage("§9§lmMask MainCommand");

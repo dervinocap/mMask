@@ -33,7 +33,7 @@ public class MaskManager {
         this.maskMap.clear();
         this.config.getConfigurationSection("Masks.").getKeys(false).forEach(maskId -> {
 
-            String lowerCaseTaserId = maskId.toLowerCase();
+            String lowerCaseMaskId = maskId.toLowerCase();
 
             String displayName = ColorAPI.getFormattedString(getValue(maskId + ".item-name"));
 
@@ -45,10 +45,13 @@ public class MaskManager {
 
             Integer distance = Integer.valueOf(getValue(maskId + ".distance"));
 
-            Mask mask = new Mask(lowerCaseTaserId, displayName, new ItemStack(material.parseItem()), chatFormat, distance);
+            Integer customModelData = Integer.valueOf(getValue(maskId + ".custom-model-data"));
+
+
+            Mask mask = new Mask(lowerCaseMaskId, displayName, new ItemStack(material.parseItem()), chatFormat, distance, customModelData);
             mask.getLore().addAll(lore);
-            this.maskMap.put(lowerCaseTaserId, mask);
-            System.out.println("§9[mMask] §f " + lowerCaseTaserId + " §bcaricato con successo!");
+            this.maskMap.put(lowerCaseMaskId, mask);
+            System.out.println("§9[mMask] §f " + lowerCaseMaskId + " §bcaricato con successo!");
         });
     }
 

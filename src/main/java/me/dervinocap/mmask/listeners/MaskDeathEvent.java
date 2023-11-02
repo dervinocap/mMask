@@ -28,6 +28,8 @@ public class MaskDeathEvent implements Listener {
             TabAPI.getInstance().getNameTagManager().showNameTag(tabPlayer);
         }
 
+        MaskEquip.mascherato.remove(player.getUniqueId());
+
     }
 
 }

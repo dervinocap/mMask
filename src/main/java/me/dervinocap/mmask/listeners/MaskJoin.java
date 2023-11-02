@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.util.Objects;
 
-public class MaskJoinEvent implements Listener {
+public class MaskJoin implements Listener {
 
     @EventHandler
     public void playerJoin(PlayerJoinEvent event) {
@@ -29,6 +29,8 @@ public class MaskJoinEvent implements Listener {
             TabPlayer tabPlayer = TabAPI.getInstance().getPlayer(player.getUniqueId());
             Objects.requireNonNull(TabAPI.getInstance().getNameTagManager()).hideNameTag(tabPlayer);
         }
+
+        MaskEquip.mascherato.add(player.getUniqueId());
 
     }
 
