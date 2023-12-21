@@ -1,11 +1,9 @@
 package me.dervinocap.mmask.utils;
 
-import me.dervinocap.mmask.MMask;
 import net.md_5.bungee.api.ChatColor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ColorAPI {
     public static List<String> getFormattedStringList(List<String> stringList) {

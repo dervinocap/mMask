@@ -6,7 +6,7 @@
 
     <groupId>me.dervinocap</groupId>
     <artifactId>mMask</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>mMask</name>
@@ -44,6 +44,13 @@
                             <artifact>*:*</artifact>
                             <excludes>
                                 <exclude>com/cryptomorin/xseries/XBiome*</exclude>
+                                <exclude>com/cryptomorin/xseries/XBiome</exclude>
+                                <exclude>com/cryptomorin/xseries/XEnchantment*</exclude>
+                                <exclude>com/cryptomorin/xseries/XEnchantment</exclude>
+                                <exclude>com/cryptomorin/xseries/XPotion*</exclude>
+                                <exclude>com/cryptomorin/xseries/XPotion</exclude>
+                                <exclude>com/cryptomorin/xseries/XSound*</exclude>
+                                <exclude>com/cryptomorin/xseries/XSound</exclude>
                                 <exclude>com/cryptomorin/xseries/NMSExtras*</exclude>
                                 <exclude>com/cryptomorin/xseries/NoteBlockMusic*</exclude>
                                 <exclude>com/cryptomorin/xseries/SkullCacheListener*</exclude>
@@ -104,11 +111,6 @@
         </repository>
 
         <repository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-        </repository>
-
-        <repository>
             <id>codemc-repo</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
             <layout>default</layout>
@@ -139,7 +141,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
 

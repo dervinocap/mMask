@@ -51,7 +51,6 @@ public class PluginCustomLoader {
         Bukkit.getPluginManager().registerEvents(new MaskChatEvent(), plugin);
         Bukkit.getPluginManager().registerEvents(new MaskJoin(), plugin);
         Bukkit.getPluginManager().registerEvents(new MaskDeathEvent(), plugin);
-        Bukkit.getPluginManager().registerEvents(new MaskEquipShift(), plugin);
 
     }
 
