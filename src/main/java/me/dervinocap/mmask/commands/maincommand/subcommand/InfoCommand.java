@@ -28,7 +28,7 @@ public class InfoCommand extends SubCommand {
         player.sendMessage("§9§lmMask Info");
         player.sendMessage("");
         player.sendMessage("§7Made by @Dervone");
-        player.sendMessage("§7Version v1.1");
+        player.sendMessage("§7Version v1.2");
         player.sendMessage("§7@DerviWorks");
         player.sendMessage("");
 

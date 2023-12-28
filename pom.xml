@@ -6,7 +6,7 @@
 
     <groupId>me.dervinocap</groupId>
     <artifactId>mMask</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>mMask</name>
@@ -49,8 +49,6 @@
                                 <exclude>com/cryptomorin/xseries/XEnchantment</exclude>
                                 <exclude>com/cryptomorin/xseries/XPotion*</exclude>
                                 <exclude>com/cryptomorin/xseries/XPotion</exclude>
-                                <exclude>com/cryptomorin/xseries/XSound*</exclude>
-                                <exclude>com/cryptomorin/xseries/XSound</exclude>
                                 <exclude>com/cryptomorin/xseries/NMSExtras*</exclude>
                                 <exclude>com/cryptomorin/xseries/NoteBlockMusic*</exclude>
                                 <exclude>com/cryptomorin/xseries/SkullCacheListener*</exclude>

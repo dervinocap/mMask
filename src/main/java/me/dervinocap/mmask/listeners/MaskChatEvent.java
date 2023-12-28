@@ -25,6 +25,8 @@ public class MaskChatEvent implements Listener {
         NBTItem nbtItem = new NBTItem(player.getInventory().getHelmet(), true);
         Mask mask = PluginCustomLoader.getInstance().getConfigHandler().getMaskManager().getMaskMap().get(nbtItem.getString("Mask"));
 
+        if (mask == null) return;
+
         event.setCancelled(true);
 
         System.out.println(mask.getChatFormat().replace("%message%", event.getMessage()).replace(mask.getChatFormat(), mask.getChatFormat() + "§f(" + player + ")"));
@@ -33,13 +35,13 @@ public class MaskChatEvent implements Listener {
 
             for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
 
-                if (onlinePlayer.getLocation().distance(player.getLocation()) >= mask.getDistance()) return;
-                onlinePlayer.sendMessage(mask.getChatFormat().replace("%message%", event.getMessage()));
+                if (onlinePlayer.getLocation().distance(player.getLocation()) <= mask.getDistance())
+                    onlinePlayer.sendMessage(mask.getChatFormat().replace("%message%", ConfigManager.getFormattedString(event.getMessage())));
 
             }
 
         } else {
-            Bukkit.getServer().broadcastMessage(mask.getChatFormat().replace("%message%", event.getMessage()));
+            Bukkit.getServer().broadcastMessage(mask.getChatFormat().replace("%message%", ConfigManager.getFormattedString(event.getMessage())));
         }
 
 
