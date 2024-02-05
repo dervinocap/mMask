@@ -45,7 +45,10 @@ public class MaskEquip implements Listener {
         if (mask == null) return;
 
         if (player.getInventory().getHelmet() != null) {
-            player.sendMessage(ConfigManager.MESSAGE_ALREADY_WEARING.getFormattedString());
+
+            if (!ConfigManager.MESSAGE_ALREADY_WEARING.getFormattedString().equalsIgnoreCase("")) {
+                player.sendMessage(ConfigManager.MESSAGE_ALREADY_WEARING.getFormattedString());
+            }
             return;
         }
 
@@ -59,11 +62,14 @@ public class MaskEquip implements Listener {
             Objects.requireNonNull(TabAPI.getInstance().getNameTagManager()).hideNameTag(tabPlayer);
         }
 
-        player.getInventory().setHelmet(player.getInventory().getItemInMainHand());
-        player.getInventory().removeItem(player.getInventory().getItemInMainHand());
+        player.getInventory().setHelmet(mask.getMaskItem());
+        player.getInventory().removeItem(mask.getMaskItem());
         player.playSound(player.getLocation(), XSound.ITEM_ARMOR_EQUIP_LEATHER.parseSound(), 1, 1);
         mascherato.add(player.getUniqueId());
-        player.sendMessage(ConfigManager.MESSAGE_WORE.getFormattedString());
+
+        if (!ConfigManager.MESSAGE_WORE.getFormattedString().equalsIgnoreCase("")) {
+            player.sendMessage(ConfigManager.MESSAGE_WORE.getFormattedString());
+        }
 
         MaskEquipEvent maskEquipEvent = new MaskEquipEvent(mask, player);
 
